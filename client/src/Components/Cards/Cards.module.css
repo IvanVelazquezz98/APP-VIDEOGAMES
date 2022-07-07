@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     width: 18rem; 
-    height: 72vh;
+    height: 50vh;
     align-items: center;
     border-width: 0.5rem;
     border-color: #784fe7 ;
@@ -24,7 +24,7 @@
 .mainContainer:hover{
     text-decoration: none;
     transform: scale(1.05) ;
-    background:#784fe7;
+    background-image: url("https://c.tenor.com/LAkFYKmcwIgAAAAd/video-game-pixel-art.gif");
     box-shadow: 0 0 10px #784fe7;
     transition-delay: .1s;
     color: rgb(92, 125, 153);

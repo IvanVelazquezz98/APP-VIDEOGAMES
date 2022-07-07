@@ -1,10 +1,12 @@
 .firstContainer {
-    background-image: url("https://as2.ftcdn.net/v2/jpg/02/26/32/49/500_F_226324929_hi845ICQfuK19RDLleoJ5UrNxGwVsZBP.jpg");
+    background-image: url("https://i.pinimg.com/originals/f4/9f/c2/f49fc2b84053fe6b121dc44048d0826f.gif");
     flex-direction: row;
     align-items: center;
     justify-content: baseline;
-    height: 4rem;
-    padding: 3.5rem;
+    height: 6rem;
+    padding: 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
     
     margin-bottom: 1rem;
 }

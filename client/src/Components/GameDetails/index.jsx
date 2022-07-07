@@ -5,33 +5,42 @@ import { useDispatch , useSelector } from "react-redux"
 import { useEffect } from "react";
 import { getVideogames , clearPage, getDetail } from '../../Redux/actions'
 import styles from "../GameDetails/GameDetails.module.css"
+import Loading from '../Loading';
 
 
 export default function GamesDetail (id) {
 
+    const detailGame = useSelector((state) => state.detail) 
     const dispatch = useDispatch()
     const gameId = useParams()
-    const detailGame = useSelector((state) => state.detail) 
+    
+    const history = useHistory()
 
     useEffect(() => {
         dispatch(getDetail(gameId.id))
 
         return() =>{
-            dispatch(clearPage())
+           dispatch(clearPage())
         }
             
         
     },[dispatch,id])
 
+
+     function handleReload() {
+        history.push('/Home')
+        window.location.reload();
+
+    }
   
     return (
         <div >
             <div>
                 <div className={styles.firstContainer} >
-                <Link to="/Home">
-                    <button className={styles.home} >Go back!</button>
+                
+                    <button onClick={(e) => handleReload(e)} className={styles.home} >Go back!</button>
 
-                </Link>
+                
             </div>
                 
                 
@@ -39,7 +48,7 @@ export default function GamesDetail (id) {
                 
                (detailGame == !detailGame ) ? //arreglar detail recipe se buguea
                    <div >
-                     <p>Loading ...</p>
+                     <Loading></Loading>
                     </div> 
                 :
                 
