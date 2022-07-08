@@ -38,7 +38,7 @@ export default function GamesDetail (id) {
             <div>
                 <div className={styles.firstContainer} >
                 
-                    <button onClick={(e) => handleReload(e)} className={styles.home} >Go back!</button>
+                    <button onClick={(e) => handleReload(e)} className={styles.home} >HOME</button>
 
                 
             </div>
@@ -53,7 +53,7 @@ export default function GamesDetail (id) {
                 :
                 
                     <div className={styles.innerContainer}>
-                        <img className={styles.image} src={detailGame.image ? (detailGame.image) : (<p>Imagen not found</p>) }/> 
+                        <img className={styles.image} src={detailGame.image ? (detailGame.image) : (<p>Image not found</p>) }/> 
                         <h1 className={styles.content}>{detailGame.name ? (detailGame.name) : (<p>-</p>)}</h1>
                         <h3 className={styles.title} >Description</h3>
                         <p className={styles.content} >{detailGame.description ? (detailGame.description) : (<p>-</p>) }</p>                         
@@ -64,8 +64,13 @@ export default function GamesDetail (id) {
                         <h3 className={styles.title}>Rating</h3>
                         <p className={styles.content}>{detailGame.rating ? (detailGame.rating) : (<p>-</p>) }</p>
                         <h3 className={styles.title}> Platforms</h3>
-                        <p className={styles.content}>{ detailGame.platform.length < 1 ? (detailGame.platform) : detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>)) }</p>
-                      
+
+                        { (detailGame.id.length > 8 )?
+                        <p className={styles.content}>{  detailGame.platform.toString()}</p>
+                       :
+                       <p className={styles.conten}> { detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>))} </p>
+                        }
+
                     </div>
                     
 
