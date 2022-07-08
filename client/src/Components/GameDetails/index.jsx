@@ -45,7 +45,7 @@ export default function GamesDetail (id) {
                 
                 
              {
-                
+
                (detailGame == !detailGame ) ? //arreglar detail recipe se buguea
                    <div >
                      <Loading></Loading>
@@ -53,18 +53,18 @@ export default function GamesDetail (id) {
                 :
                 
                     <div className={styles.innerContainer}>
-                        <img className={styles.image} src={detailGame.image}/> 
-                        <h1 className={styles.content}>{detailGame.name}</h1>
+                        <img className={styles.image} src={detailGame.image ? (detailGame.image) : (<p>Imagen not found</p>) }/> 
+                        <h1 className={styles.content}>{detailGame.name ? (detailGame.name) : (<p>-</p>)}</h1>
                         <h3 className={styles.title} >Description</h3>
                         <p className={styles.content} >{detailGame.description ? (detailGame.description) : (<p>-</p>) }</p>                         
                         <h3 className={styles.title} >ReleaseDate</h3>
                         <p className={styles.content} >{detailGame.releaseDate  ? (detailGame.releaseDate) : (<p>-</p>)}</p>
                         <h3 className={styles.title}>Genre</h3>
-                        <p className={styles.content}> {detailGame.genre.map(r => (<li key={r}>{r} </li>))}</p>
+                        <p className={styles.content}> {!detailGame.genres ? (<p>-</p>) : detailGame.genres.map(r => (<li key={r.name}>{r.name} </li>))}</p>
                         <h3 className={styles.title}>Rating</h3>
                         <p className={styles.content}>{detailGame.rating ? (detailGame.rating) : (<p>-</p>) }</p>
                         <h3 className={styles.title}> Platforms</h3>
-                        <p className={styles.content}>{detailGame.platform.map(r => (<li key={r}>{r} </li>))}</p>
+                        <p className={styles.content}>{ detailGame.platform.length < 1 ? (detailGame.platform) : detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>)) }</p>
                       
                     </div>
                     

@@ -44,7 +44,7 @@ const { Videogame, Genre } = require("../db");
 
     router.post("/CreateVideogame", async (req,res,next) =>{
         try {
-            const {name, description, releaseDate,image,rating,platform,genre} = req.body
+            const {name, description, releaseDate,image,rating,platform,genres} = req.body
     
             const gameCreate = await Videogame.create({
                 name,
@@ -55,7 +55,7 @@ const { Videogame, Genre } = require("../db");
                 platform,
             })
     
-            const proms = genre.map(genre => gameCreate.addGenre(genre));
+            const proms = genres.map(genre => gameCreate.addGenre(genre));
             await Promise.all(proms)
     
             res.status(200).send({ msg: "Game successfully created" })

@@ -18,14 +18,14 @@ const getInfoApi = async () => {
         const getApivideogame = vContainer.map(v => {
     
             return {
-                id: v.id,
+                id: v.id.toString(),
                 name: v.name,
                 description: v.description,
                 releaseDate: v.released,
                 image: v.background_image,
-                rating: v.rating,
+                rating: v.rating.toString(),
                 platform: v.platforms.map(p => p.platform.name ),
-                genre: v.genres.map(g => "  /  " + g.name + "  /  ")
+                genres: v.genres.map(each => ({ name: each.name }))
             }
         });
         return getApivideogame;
@@ -68,14 +68,14 @@ const getIdxApi = async (id) =>{
     console.log(infoGame)
 
     return{
-        id: infoGame.id,
+        id: infoGame.id.toString(),
         name: infoGame.name_original,
         description: infoGame.description.replace(/<[^>]*>?/g, ''),
         releaseDate: infoGame.released,
         image: infoGame.background_image,
-        rating: infoGame.rating,
-        platform: infoGame.platforms.map(p => p.platform.name ),
-        genre: infoGame.genres.map(g => g.name )
+        rating: infoGame.rating.toString(),
+        platform:  infoGame.platforms.map(p => ({ name : p.platform.name}) ),
+        genres: infoGame.genres.map(each => ({ name: each.name }))
         }
         
         } catch{

@@ -27,7 +27,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: baseline;
-    height: 7.5rem;
+    height: 10rem;
     padding: 2rem;
     background-repeat: no-repeat;
     background-size: cover;
@@ -77,34 +77,35 @@
     
 }
 
-.imputContainer{
+.inputContainer{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.createRecipe{
+.createGame{
     display: flex;
     align-items: center;
     justify-content: left;
 }
 
-.botonCreateRecipe{
+.botonCreateGame{
     text-decoration:none;
-    font-weight:10px;
-    font-size:10px;
+    font-weight:12px;
+    font-size:12px;
     color:#080101;
-    padding-top:10px;
-    padding-bottom:10px;
-    padding-left:10px;
-    padding-right:10px;
-    background-image: url('https://i.pinimg.com/originals/f4/9f/c2/f49fc2b84053fe6b121dc44048d0826f.gif');
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left:12px;
+    padding-right:12px;
+    background-color:#784fe7;
     border-radius: 00.5rem;
     transition: transform .7s;
+    border-color: #080101;
    
 }
 
-.botonCreateRecipe:hover{
+.botonCreateGame:hover{
     transform: scale(1.05) ;
     background:#784fe7;
     box-shadow: 0 0 10px #080808 ;

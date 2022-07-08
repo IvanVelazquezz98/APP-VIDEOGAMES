@@ -72,7 +72,7 @@ export default function Home() {
             <SearchBar setCurrentPage={setCurrentPage}/>
         </div>
 
-        <div>
+        <div className={styles.inputContainer}>
         <select  onChange={e => handleSortedGameName(e)}>
                 <option value="" >Select Order Name</option>
                 <option value= "Asc">Ascendant</option>
@@ -91,7 +91,12 @@ export default function Home() {
                     ))}
          </select>
         </div>
-        
+        <div className={styles.createGame}> 
+            <Link to="/Createvideogame">
+            <button className={styles.botonCreateGame}> Created Game </button>
+            </Link>
+                
+        </div>
         <div>
             <Link to="/About">
             <button className={styles.about}> About</button>
@@ -121,7 +126,7 @@ export default function Home() {
                           <Card 
                                 image={game.image}
                                 name={game.name} 
-                                genre={game.genre } 
+                                genres={game.genres.map(r => <p key={r.id}  > {r.name}</p>)}
                                 key={game.id} >
                            </Card>
                         </Link>

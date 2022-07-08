@@ -12,10 +12,10 @@
 .botonpersonalizado {
     text-decoration:none;
     font-weight:12px;
-    font-size:12px;
+    font-size:15px;
     color:#080101;
     padding: 12px;
-    background-image : url('https://i.pinimg.com/originals/f4/9f/c2/f49fc2b84053fe6b121dc44048d0826f.gif');
+    background-color :rgb(48, 17, 134);
     border-radius: 00.5rem;
     transition: transform .7s;
     border-color: #080101;

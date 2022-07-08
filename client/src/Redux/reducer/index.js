@@ -44,7 +44,7 @@ export default function rootReducer(state = initialState , action){
 
             case "FILTERED_BY_GENRE":
                 const games = state.copyGames
-                const genreFiltered = action.payload === "" ? games : games.filter(game => game.genre.includes(action.payload))  
+                const genreFiltered = action.payload === "" ? games : games.filter(game => game.genres.includes(action.payload))  
                       return {
                          ...state,
                            allGames: genreFiltered

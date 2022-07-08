@@ -24,13 +24,13 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     image: {
-      type: DataTypes.TEXT
+      type: DataTypes.STRING
     },
     rating: {
       type: DataTypes.STRING //posible error
     },
     platform:{
-      type:DataTypes.STRING(1000)
+      type:DataTypes.STRING
     }
 
 

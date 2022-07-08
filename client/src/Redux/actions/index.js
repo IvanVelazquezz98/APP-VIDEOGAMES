@@ -84,6 +84,17 @@ export function filteredGenre(payload){
         payload
     }
 }
+
+export function postGame(payload){
+    return async function(dispatch){
+        try {
+            var json = await axios.post(`http://localhost:3001/videogames/CreateVideogame`, payload)
+            return json
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
 export function clearPage(){
     return {
         type: "CLEAR_PAGE"
