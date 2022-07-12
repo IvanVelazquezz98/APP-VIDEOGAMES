@@ -1,4 +1,6 @@
 import axios from "axios"
+import { bindActionCreators } from "redux"
+import Loading from "../../Components/Loading"
 
 
 
@@ -50,16 +52,20 @@ export function getDetail(id){
 
 export function searchGame(name){
     return async function(dispatch){
+        
         try {
-            axios.get('http://localhost:3001/videogames?name=' + name)
+            
+            axios.get('http://localhost:3001/videogames?name=' + name) 
             .then(response => {
                 return dispatch ({
                     type: "SEARCH_GAME",
-                    payload: response.data
-                })
-            })
+                    payload: response.data 
+                }) 
+            } )
+           
+            
         } catch (error) {
-            console.log(error)
+            <Loading/>
         }
     }
 }
@@ -91,12 +97,25 @@ export function postGame(payload){
             var json = await axios.post(`http://localhost:3001/videogames/CreateVideogame`, payload)
             return json
         } catch (error) {
-            console.log(error)
+            console.log(error)}
         }
     }
+    export function clearPage(){
+        return {
+            type: "CLEAR_PAGE"
+        }
+    }
+
+export function setFav(payload){
+    return{
+        type:"SET_FAV",
+        payload
+    }
 }
-export function clearPage(){
-    return {
-        type: "CLEAR_PAGE"
+
+export function delFav(payload){
+    return{
+        type:"DEL_FAV",
+        payload
     }
 }

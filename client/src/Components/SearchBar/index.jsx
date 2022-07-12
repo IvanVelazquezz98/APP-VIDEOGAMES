@@ -4,6 +4,7 @@ import { useDispatch  } from "react-redux";
 
 import { Link } from 'react-router-dom';
 import {  searchGame } from "../../Redux/actions";
+import Loading from "../Loading";
 import styles from '../SearchBar/SearchBar.module.css'
 
 
@@ -38,7 +39,7 @@ export default function SearchBar({title , setCurrentPage}){
         <div className={styles.searchContainer}>
             
             <input className={styles.imput} type="text" placeholder="Search Game..." onChange={(e) => handleInputChange(e)}></input>
-            <button className={styles.boton} type="submit"  onClick={(e) => handleSubmit(e)}>Buscar</button>
+            <button className={styles.boton} type="submit"  onClick={ (e) => handleSubmit(e) }>Buscar</button>
             </div>
             )
     }

@@ -2,9 +2,11 @@ const initialState ={
     allGames: [],   
     copyGames: [], 
     genres: [], 
-    detail: []
+    detail: [],
+    favGames: []
 
 }
+
 
 
 export default function rootReducer(state = initialState , action){
@@ -44,13 +46,18 @@ export default function rootReducer(state = initialState , action){
 
             case "FILTERED_BY_GENRE":
                 const games = state.copyGames
-                const genreFiltered = action.payload === "" ? games : games.filter(game => game.genres.includes(action.payload))  
+                const genreFiltered = action.payload === "" ? games : games.filter(game => {
+                        let genre = game.genres.map(d => d.name)
+                        if (genre.includes(action.payload)){
+                            return genre
+                        }
+                    }) 
                       return {
                          ...state,
                            allGames: genreFiltered
                        }
 
-             case "ORDER_BY_NAME":
+            case "ORDER_BY_NAME":
                 const sortedRGameName = action.payload === "Asc" ? 
                     state.allGames.sort(function( a , b ) {
                          if(a.name.toLowerCase() > b.name.toLowerCase()){
@@ -74,7 +81,7 @@ export default function rootReducer(state = initialState , action){
                              allGames: sortedRGameName
                         }
 
-                 case "ORDER_BY_RATING":
+            case "ORDER_BY_RATING":
             
                      const sortedGameRating = action.payload === "MAX RATING" ? 
                          state.allGames.sort(function(a,b) {
@@ -98,6 +105,17 @@ export default function rootReducer(state = initialState , action){
                             ...state,
                             allGames: sortedGameRating
                         }
+            case "SET_FAV": return{
+                ...state,
+                favGames: state.favGames.find((game) => game.id == action.payload.id) ? [...state.favGames] 
+                : [...state.favGames, action.payload]
+             }
+            
+            case "DEL_FAV":return{
+                ...state,
+                favGames: state.favGames.filter(game => game.id !== action.payload.id)
+            }
+
             
             default: return state
     }

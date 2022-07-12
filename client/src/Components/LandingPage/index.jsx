@@ -8,7 +8,7 @@ function landingPage() {
     
         <div className={styles.background}>
             <Link to="/Home">
-                    <button className={styles.button} >Start Now!</button>
+                    <button className={styles.button} >Start !</button>
             </Link>
         
         </div>

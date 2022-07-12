@@ -5,21 +5,17 @@
     justify-content: baseline;
     height: 5rem;
     padding: 5rem;
-    
     margin-bottom: 1rem;
 }
 
-.recipeContainer {
-    
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-    
+.gameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;  
 }
 
 .home{
-
     text-decoration:none;
     font-weight:12px;
     font-size:12px;
@@ -31,19 +27,18 @@
     background-color:#784fe7;
     border-radius: 00.5rem;
     transition: transform .7s;
-   
 }
 
 .home:hover{
     transform: scale(1.05) ;
-        background:#784fe7;
-        box-shadow: 0 0 10px #0c0c0b ;
-        transition-delay: .2s;
-        color: rgb(7, 7, 1);
-        text-decoration: none;
+    background:#784fe7;
+    box-shadow: 0 0 10px #0c0c0b ;
+    transition-delay: .2s;
+    color: rgb(7, 7, 1);
+    text-decoration: none;
 }
 
-.botonCreateRecipe{
+.botonCreateGame{
     text-decoration: none;
     font-weight:10px;
     font-size:10px;
@@ -58,13 +53,12 @@
     border: none;
 }
 
-.botonCreateRecipe:hover{
+.botonCreateGame:hover{
     transform: scale(1.05) ;
     background:#784fe7;
     box-shadow: 0 0 10px #080808 ;
     transition-delay: .1s;
     color: rgb(3, 3, 1);
-    
 }
 
 .imput{
@@ -81,11 +75,11 @@
  }
  
  .boton:hover{
-         transform: scale(1.05) ;
-         background:#784fe7;
-         box-shadow: 0 0 10px #0c0c0b ;
-         transition-delay: .2s;
-         color: rgb(7, 7, 1);
+    transform: scale(1.05) ;
+    background:#784fe7;
+    box-shadow: 0 0 10px #0c0c0b ;
+    transition-delay: .2s;
+    color: rgb(7, 7, 1);
  }
  
  .botonDelete {
@@ -96,9 +90,9 @@
  }
 
 .botonDelete:hover{
-     transform: scale(1.05) ;
-     background:#784fe7;
-     box-shadow: 0 0 10px #0c0c0b ;
-     transition-delay: .2s;
-     color: rgb(7, 7, 1); 
+    transform: scale(1.05) ;
+    background:#784fe7;
+    box-shadow: 0 0 10px #0c0c0b ;
+    transition-delay: .2s;
+    color: rgb(7, 7, 1); 
 }

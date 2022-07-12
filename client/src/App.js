@@ -5,6 +5,7 @@ import landingPage from './Components/LandingPage';
 import GamesDetail from './Components/GameDetails';
 import CreateGame from './Components/CreateGame';
 import About from './Components/About';
+import Favorites from './Components/Favorites';
 function App() {
   return (
     <BrowserRouter>
@@ -13,6 +14,7 @@ function App() {
     <Route exact path="/Videogames/:id" component={GamesDetail} />
     <Route exact path="/Createvideogame" component={CreateGame} />
     <Route exact path="/About" component={About} />
+    <Route exact path="/Favorites" component={Favorites} />
     </BrowserRouter>
   );
 }

@@ -1,17 +1,14 @@
 .gameContainer {
-    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    
 }
+
 .Link {
     text-decoration: none;
-    
 }
 
 .background {
-    
     background-position: center; 
     background-size: cover;
     background-repeat: no-repeat;
@@ -31,18 +28,8 @@
     padding: 2rem;
     background-repeat: no-repeat;
     background-size: cover;
-    
     margin-bottom: 1rem;
 }
-
-.recipeContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    text-decoration: none;
-}
-
-
 
 .link {
     text-decoration: none;
@@ -53,7 +40,6 @@
     display: flex;
     flex-direction: row;
 }
-
 
 .mainContainer {
     display: flex;
@@ -72,24 +58,24 @@
     margin-left: 2px;
     background-color: transparent ;
     text-decoration: none;
-
-
-    
 }
 
 .inputContainer{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .createGame{
     display: flex;
     align-items: center;
     justify-content: left;
+    cursor: pointer;
 }
 
 .botonCreateGame{
+    cursor: pointer;
     text-decoration:none;
     font-weight:12px;
     font-size:12px;
@@ -115,7 +101,7 @@
 }
 
 .home{
-
+    cursor: pointer;
     text-decoration:none;
     font-weight:12px;
     font-size:12px;
@@ -140,7 +126,7 @@
 }
 
 .about{
-
+    cursor: pointer;
     text-decoration:none;
     font-weight:12px;
     font-size:12px;

@@ -15,11 +15,14 @@ function validate(post){
 
     post.description
     ? (errors.description = "")
-    : (errors.description = "your game needs a description")
-       
-   post.releaseDate
-   ? (errors.releaseDate = "")
-   :(errors.releaseDate = "your game needs a release date")
+    : (errors.description = "Your game needs a description!")
+
+   post.image 
+   ? (errors.image = "")
+   : (errors.image = "Your game need a image!")
+   post.platform
+   ? (errors.platform = "")
+   :(errors.platform = "Your game need a platform!")
 
    
  return errors
@@ -73,11 +76,11 @@ export default function GameCreate(){
                     ...post,
                     genres: [...new Set ([...post.genres , e.target.value])]
                 })
-               // console.log("ola", post.diets )   
+               
          }
     
     
-    //}
+   
 
     function handleGenreDelete(deleteThis){
         setPost({
@@ -152,39 +155,39 @@ export default function GameCreate(){
             <button onClick={(e) => handleReload(e)} className={styles.home} >HOME</button>
            
             </div>
-            <h1 className={styles.recipeContainer}>Create your own Game</h1>
+            <h1 className={styles.gameContainer}>Create your own Game</h1>
             <form >
                 
-                <div  className={styles.recipeContainer}>
+                <div  className={styles.gameContainer}>
                     <label >Name</label>
                     <input className={styles.imput} type="text" value={post.name} name="name" onChange={(e) => handleChange(e)} ></input>
                     {errors.name && (<p >{errors.name}</p>)}
                 </div>
-                <div className={styles.recipeContainer}>
+                <div className={styles.gameContainer}>
                     <label >Description</label>
                     <textarea className={styles.imput} type="text" value={post.summary} name="description" maxLength="1000" onChange={(e) => handleChange(e)}></textarea>
                     {errors.description && (<p>{errors.description}</p>)}
                 </div>
-                <div className={styles.recipeContainer}>
+                <div className={styles.gameContainer}>
                     <label >releaseDate</label>
                     <input className={styles.imput} type="date" min="0" max="100" value={post.releaseDate} name="releaseDate" onChange={(e) => handleChange(e)}></input>
                     {<p >{post.releaseDate}</p>}
                 </div>
-                <div className={styles.recipeContainer}>
+                <div className={styles.gameContainer}>
                     <label >Image URL</label>
                     <input className={styles.imput} type="url" value={post.image} name="image" onChange={(e) => handleChange(e)}></input>
                 </div>
-                <div className={styles.recipeContainer}>
+                <div className={styles.gameContainer}>
                                     <label>Rating</label>
                                     <input className={styles.imput} type="Number" value={post.rating} name="rating" min= "0" max= "5" onChange={(e) => handleChange(e)}></input>
                                     {errors.rating && (<p >{errors.rating}</p>)}
                 </div>
-                <div className={styles.recipeContainer}>
+                <div className={styles.gameContainer}>
                                     <label>Platform</label>
                                     <textarea className={styles.imput} type="text" value={post.platform} name="platform" onChange={(e) => handleChange(e)}></textarea>
                                     {errors.platform && (<p >{errors.platform}</p>)}
                 </div>
-                <div className={styles.recipeContainer} >
+                <div className={styles.gameContainer} >
                     <select  onChange={(e)=> handleSelect(e)}>
                         <option value="" hidden name="genre" >Select Genres</option>
                             {allGenre?.map((genres) => {
@@ -192,7 +195,7 @@ export default function GameCreate(){
                             })
                             } 
                     </select>
-                    <ul className={styles.recipeContainer}>
+                    <ul className={styles.gameContainer}>
                     
                         <p>                            
                             {post.genres.map(g => 
@@ -205,8 +208,8 @@ export default function GameCreate(){
                        
                     </ul>
                 </div>
-                <div className={styles.recipeContainer}>
-                <button className={styles.botonCreateRecipe}  type="submit" onClick={(e) => handleSubmit(e)}>Create Game</button>
+                <div className={styles.gameContainer}>
+                <button className={styles.botonCreateGame}  type="submit" onClick={(e) => handleSubmit(e)}>Create Game</button>
                 </div> 
            </form>
             

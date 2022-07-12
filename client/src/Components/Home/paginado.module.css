@@ -1,12 +1,9 @@
 .ul{
-    
     align-items: center;
     justify-content: center;
     flex-direction: row;
-   display: flex;
+    display: flex;
     list-style: none;
-    
-    
 }
 
 .botonpersonalizado {
@@ -26,15 +23,13 @@
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    }
+}
 
     
 .botonpersonalizado:hover{
-        transform: scale(1.05) ;
-        background:#784fe7;
-        box-shadow: 0 0 10px #0c0c0b ;
-        transition-delay: .2s;
-        color: rgb(7, 7, 1);
-        
-        
+     transform: scale(1.05) ;
+     background:#784fe7;
+     box-shadow: 0 0 10px #0c0c0b ;
+     transition-delay: .2s;
+     color: rgb(7, 7, 1);  
     }

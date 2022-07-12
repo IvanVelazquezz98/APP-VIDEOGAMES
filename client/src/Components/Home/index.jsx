@@ -97,9 +97,15 @@ export default function Home() {
             </Link>
                 
         </div>
+        
         <div>
             <Link to="/About">
             <button className={styles.about}> About</button>
+            </Link>
+        </div>
+        <div>
+            <Link to="/Favorites">
+            <button className={styles.about}> Favorites</button>
             </Link>
         </div>
         </div>
@@ -116,7 +122,7 @@ export default function Home() {
                 {(currentGames == !currentGames)
                 ?
                 <div >
-                      <Loading></Loading>
+                      <Loading/>
                     </div> 
                 :
                 
@@ -124,10 +130,11 @@ export default function Home() {
                     return (
                         <Link className={styles.Link} to={`/videogames/${game.id}`}>
                           <Card 
-                                image={game.image}
-                                name={game.name} 
-                                genres={game.genres.map(r => <p key={r.id}  > {r.name}</p>)}
-                                key={game.id} >
+                                image={game.image ? game.image : <Loading/>}
+                                name={game.name ? game.name : <Loading/> } 
+                                genres={game .genres ? game.genres.map(r => <p key={r.id}  > {r.name}</p>) : <Loading/> }
+                                key={game.id} 
+                                fav={game}>
                            </Card>
                         </Link>
                         )
@@ -135,6 +142,14 @@ export default function Home() {
                 }
             </div>
         </div>
+        <div>
+         <Paginado 
+        gamesPerPage={gamesPerPage}
+        allGames={allGames.length} 
+        paginado={paginado}>
+        </Paginado>
+        </div> 
+
         
         
         </>

@@ -34,7 +34,7 @@ export default function GamesDetail (id) {
     }
   
     return (
-        <div >
+        
             <div>
                 <div className={styles.firstContainer} >
                 
@@ -42,7 +42,7 @@ export default function GamesDetail (id) {
 
                 
             </div>
-                
+                <div className={styles.mainContainer}>
                 
              {
 
@@ -52,7 +52,7 @@ export default function GamesDetail (id) {
                     </div> 
                 :
                 
-                    <div className={styles.innerContainer}>
+                    <div className={styles.mainContainer}>
                         <img className={styles.image} src={detailGame.image ? (detailGame.image) : (<p>Image not found</p>) }/> 
                         <h1 className={styles.content}>{detailGame.name ? (detailGame.name) : (<p>-</p>)}</h1>
                         <h3 className={styles.title} >Description</h3>
@@ -68,18 +68,19 @@ export default function GamesDetail (id) {
                         { (detailGame.id.length > 8 )?
                         <p className={styles.content}>{  detailGame.platform.toString()}</p>
                        :
-                       <p className={styles.conten}> { detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>))} </p>
+                       <p className={styles.content}> { detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>))} </p>
                         }
 
                     </div>
                     
 
-                    
+                   
                 
             }
+            </div> 
             </div>
             
-        </div>
+        
         
      )
 

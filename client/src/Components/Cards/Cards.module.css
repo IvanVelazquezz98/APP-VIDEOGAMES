@@ -4,11 +4,10 @@
     display: flex;
     flex-direction: column;
     width: 18rem; 
-    height: 50vh;
+    height: 60vh;
     align-items: center;
     border-width: 0.5rem;
     border-color: #784fe7 ;
-    
     border: 2px;
     border-radius: 12px;
     transition: transform .5s;
@@ -17,8 +16,7 @@
     margin-right: 2px;
     margin-left: 2px;
     background-color: transparent ;
-    
-    
+    cursor:default
 }
 
 .mainContainer:hover{
@@ -28,13 +26,15 @@
     box-shadow: 0 0 10px #784fe7;
     transition-delay: .1s;
     color: rgb(92, 125, 153);
-    
+    background-size: cover;
 }
-.imagen {
+
+.image {
     width: 18rem;
     height: 10rem;
     border-radius: 10px;
     object-fit: cover;
+    display:flex
 }
 
 .innerContainer{
@@ -45,29 +45,44 @@
     margin-bottom: .5px;
     justify-content: center;
     text-align: center;
-    
     border: #784fe7;
-   
 }
 
 .innerContainer:hover{
     color: beige;
 }
+
 .name {
     text-decoration: none;
     font-size: 20px;
-    
     align-items: center;
-    
     color: #080800;
     flex-direction: row;
-    
-    
+    display:flex
 }
+
 .genres {
     text-decoration: none;
     font-size: 10px;
-    
     color: #0a0a02be;
     align-items: center;
+    
+}
+.favorites{
+    text-decoration: none;
+    font-size: 20px;
+    color: #fc0808be;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform .7s;
+}
+
+.favorites:hover{
+    transform: scale(1.05) ;
+    background: #784fe7;
+    box-shadow: 0 0 10px #0c0c0b ;
+    transition-delay: .2s;
+    color: rgb(7, 7, 1);
 }
