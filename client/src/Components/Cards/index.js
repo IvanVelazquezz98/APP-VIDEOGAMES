@@ -9,12 +9,10 @@ export default function Card({ image , name , genres , fav }){
     const dispatch = useDispatch()
     const gameId = useParams()
 
-    const [color,setColor]=useState()
 
     function handleClick(e){
         dispatch(setFav(fav))
         e.preventDefault();
-        setColor("black")
     }
     return (
         <div className={styles.mainContainer} >

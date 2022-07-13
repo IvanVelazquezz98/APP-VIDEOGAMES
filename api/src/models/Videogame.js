@@ -16,21 +16,24 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.TEXT
+      
     },
     releaseDate: {
       type: DataTypes.DATE,
       allowNull: false
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     rating: {
-      type: DataTypes.STRING //posible error
+      type: DataTypes.STRING,
+      allowNull:false
+       //posible error
     },
     platform:{
-      type:DataTypes.STRING
+      type:DataTypes.STRING,
+      allowNull: false
     }
 
 

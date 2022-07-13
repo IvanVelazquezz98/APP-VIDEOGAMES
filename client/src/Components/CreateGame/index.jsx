@@ -179,7 +179,7 @@ export default function GameCreate(){
                 </div>
                 <div className={styles.gameContainer}>
                                     <label>Rating</label>
-                                    <input className={styles.imput} type="Number" value={post.rating} name="rating" min= "0" max= "5" onChange={(e) => handleChange(e)}></input>
+                                    <input className={styles.imput} type="Number" value={post.rating} name="rating" min= "0" max= "5" step="0.1" onChange={(e) => handleChange(e)}></input>
                                     {errors.rating && (<p >{errors.rating}</p>)}
                 </div>
                 <div className={styles.gameContainer}>
