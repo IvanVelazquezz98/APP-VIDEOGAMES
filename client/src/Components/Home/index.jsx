@@ -117,7 +117,7 @@ export default function Home() {
         paginado={paginado}>
         </Paginado>
         </div> 
-        <div>
+        <div >
           <div className={styles.gameContainer}>
                 {(currentGames == !currentGames)
                 ?

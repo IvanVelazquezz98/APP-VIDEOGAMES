@@ -26,7 +26,7 @@ export default function Favorites(){
         <h1>Favorites</h1>
         {
             (favGame == !favGame)?
-            <div><h3>No favorite games</h3> </div>
+            <div>No registered favorite games found... <Loading/> </div>
             : favGame.map(game => {
                 return (
                     <div className={styles.mainContainer}>

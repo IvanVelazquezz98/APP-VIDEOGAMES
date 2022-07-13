@@ -151,3 +151,13 @@
     color: rgb(7, 7, 1);
 }
 
+.background{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNpZGmRSKMR6V1UrjxA1mSj6EOTXQIfbZDPg&usqp=CAU");
+    background-position: center; 
+    background-size :cover ;
+    background-repeat: no-repeat;
+    width: 100%;
+    
+    height: 100%; 
+    
+}

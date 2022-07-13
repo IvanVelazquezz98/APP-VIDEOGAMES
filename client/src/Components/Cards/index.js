@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../Cards/Cards.module.css'
 import Loading from '../Loading'
 import { setFav } from '../../Redux/actions';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
 
 export default function Card({ image , name , genres , fav }){
     const dispatch = useDispatch()
     const gameId = useParams()
 
+    const [color,setColor]=useState()
+
     function handleClick(e){
         dispatch(setFav(fav))
-        e.preventDefault()
-
+        e.preventDefault();
+        setColor("black")
     }
     return (
         <div className={styles.mainContainer} >
@@ -20,7 +22,7 @@ export default function Card({ image , name , genres , fav }){
             <div className={styles.innerContainer} >
                 <h3 className={styles.name}> {name ? name : <Loading/>}</h3>
                 <h5 className={styles.genres} >{genres ? genres : <Loading/>}</h5>
-                <h5 ><button title="Add to Favorites" className={styles.favorites} onClick={(e) => handleClick(e)}>❤</button></h5>
+                <h5 ><button title="Add to Favorites" className={styles.botonfavorites} onClick={(e) => handleClick(e) } >❤</button></h5>
             </div>
         </div>
     )
