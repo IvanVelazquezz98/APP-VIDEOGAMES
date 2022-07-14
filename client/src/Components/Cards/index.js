@@ -16,7 +16,7 @@ export default function Card({ image , name , genres , fav }){
     }
     return (
         <div className={styles.mainContainer} >
-            <img className={styles.image} src={ !image ? <Loading/> : image} alt="Image not found"/>
+            <img className={styles.image}  src={ !image ? <Loading/> : image} alt="Image not found"/>
             <div className={styles.innerContainer} >
                 <h3 className={styles.name}> {name ? name : <Loading/>}</h3>
                 <h5 className={styles.genres} >{genres ? genres : <Loading/>}</h5>

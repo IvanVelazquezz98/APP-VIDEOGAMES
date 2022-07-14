@@ -90,7 +90,7 @@ export default function GameCreate(){
     }
 
     function handleSubmit(e){
-        const maximo = 35
+        const maximo = 50
         const rMaximo = 5
         const rMinimo = 0
 
@@ -99,7 +99,7 @@ export default function GameCreate(){
             return alert("The recipe needs a name")
         } if (post.name.length > maximo){
             e.preventDefault()
-            return alert("the name cannot exceed 35 characters")
+            return alert("the name cannot exceed 50 characters")
         }
         else if(!post.description) {
             e.preventDefault()

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from '../LandingPage/LandingPage.module.css'
 
 
-function landingPage() {
+ export default function landingPage() {
     return (
     
         <div className={styles.background}>
@@ -16,4 +16,3 @@ function landingPage() {
 
 }
 
-export default landingPage

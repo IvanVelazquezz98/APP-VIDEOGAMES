@@ -46,7 +46,7 @@ export default function GamesDetail (id) {
                 
              {
 
-               (detailGame == !detailGame ) ? //arreglar detail recipe se buguea
+               (detailGame == !detailGame ) ? 
                    <div >
                      <Loading></Loading>
                     </div> 
