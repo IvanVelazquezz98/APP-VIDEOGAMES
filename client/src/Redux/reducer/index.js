@@ -58,6 +58,13 @@ export default function rootReducer(state = initialState , action){
                          ...state,
                            allGames: genreFiltered
                        }
+            case "FILTERED_BY_PLATFORM":
+                const gamesP = state.copyGames
+                const platformFiltered = action.payload === "" ? gamesP : gamesP.filter(p => p.platform.includes(action.payload)) 
+                return {
+                    ...state,
+                    allGames:platformFiltered
+                }        
 
             case "ORDER_BY_NAME":
                 const sortedRGameName = action.payload === "Asc" ? 
@@ -107,6 +114,7 @@ export default function rootReducer(state = initialState , action){
                             ...state,
                             allGames: sortedGameRating
                         }
+
             case "SET_FAV": return{
                 ...state,
                 favGames: state.favGames.find((game) => game.id == action.payload.id) ? [...state.favGames] 
@@ -117,6 +125,7 @@ export default function rootReducer(state = initialState , action){
                 ...state,
                 favGames: state.favGames.filter(game => game.id !== action.payload.id)
             }
+            
 
             
             default: return state

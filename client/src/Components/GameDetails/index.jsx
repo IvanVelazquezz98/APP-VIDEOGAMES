@@ -66,7 +66,7 @@ export default function GamesDetail (id) {
                         <h3 className={styles.title}> Platforms</h3>
 
                         { (detailGame.id.length > 8 )?
-                        <p className={styles.content}>{  detailGame.platform.toString()}</p>
+                        <p className={styles.content}>{  detailGame.platform.replace("{", '' ).replace("}",'').replace( /['"]+/g,'')}</p>
                        :
                        <p className={styles.content}> { detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>))} </p>
                         }

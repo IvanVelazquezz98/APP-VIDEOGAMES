@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react';
 import { useDispatch , useSelector  } from 'react-redux';
 import Paginado from './paginado';
 import Card from '../../Components/Cards';
-import {getGenres, getVideogames , orderByName ,orderByRating , filteredGenre} from '../../Redux/actions';
+import {getGenres, getVideogames , orderByName ,orderByRating , filteredGenre ,filteredPlatform} from '../../Redux/actions';
 import styles from '../Home/Home.module.css'
 import SearchBar from '../SearchBar';
 import Loading from '../Loading';
+import {allPlatform} from '../CreateGame/platforms'
 import About from '../About'
 
 export default function Home() {
@@ -62,6 +63,11 @@ export default function Home() {
         setCurrentPage(1)
         e.preventDefault();
     }
+    function handleFilteredPlatform(e){
+        dispatch(filteredPlatform(e.target.value))
+        setCurrentPage(1)
+        e.preventDefault()
+    }
 
     return(
         <>
@@ -88,6 +94,13 @@ export default function Home() {
                     <option value="">All</option>
                     {allGenre.map((g) => (
                     <option value={g.name} key={g.id}>{g.name}</option>
+                    ))}
+         </select>
+         <select onChange={e => handleFilteredPlatform(e)}>
+                    <option value="">Select Platform</option>
+                    <option value="">All</option>
+                    {allPlatform.map((p) => (
+                    <option value={p.name} key={p.name}>{p.name}</option>
                     ))}
          </select>
         </div>

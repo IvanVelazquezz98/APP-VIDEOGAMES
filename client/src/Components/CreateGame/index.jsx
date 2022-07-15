@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link , useHistory } from "react-router-dom"
-import { postGame } from "../../Redux/actions"
+import { getGenres, postGame } from "../../Redux/actions"
 import { useDispatch , useSelector } from "react-redux"
+import { allPlatform } from "./platforms";
 import styles from '../CreateGame/CreateGame.module.css'
 
 
@@ -29,17 +30,21 @@ function validate(post){
     }
 
     
-
-   
-   
-
-
    
 
 export default function GameCreate(){
     const dispatch = useDispatch()
     const history = useHistory()
     const allGenre = useSelector((state) => state.genres)
+
+    useEffect(() => {
+        dispatch(getGenres(allGenre)
+
+        
+        
+    ,[dispatch])})
+
+   
     
     function handleReload() {
         history.push('/Home')
@@ -54,7 +59,7 @@ export default function GameCreate(){
             releaseDate: "",
             image: "",
             rating: "",     
-            platform: "",
+            platform: [],
             genres: []
     })
 
@@ -78,16 +83,28 @@ export default function GameCreate(){
                 })
                
          }
-    
-    
-   
-
     function handleGenreDelete(deleteThis){
+             setPost({
+                  ...post,
+                  genres: post.genres.filter(g => g !== deleteThis)
+            })
+        }
+
+    function handleSelectPlatform(e){
         setPost({
             ...post,
-            genres: post.genres.filter(g => g !== deleteThis)
+            platform:[...new Set ([...post.platform ,e.target.value])]
         })
     }
+
+    function handleDeletePlatform(deleteThis){
+        setPost({
+            ...post,
+            platform: post.platform.filter(p => p !== deleteThis)
+        })
+    }
+    
+    
 
     function handleSubmit(e){
         const maximo = 50
@@ -139,7 +156,7 @@ export default function GameCreate(){
                 releaseDate: "",
                 image: "",
                 rating: "",
-                platform: "",
+                platform:[],
                 genres: []
                 })
             history.push('/home')
@@ -182,10 +199,32 @@ export default function GameCreate(){
                                     <input className={styles.imput} type="Number" value={post.rating} name="rating" min= "0" max= "5" step="0.1" onChange={(e) => handleChange(e)}></input>
                                     {errors.rating && (<p >{errors.rating}</p>)}
                 </div>
+               
+                
                 <div className={styles.gameContainer}>
-                                    <label>Platform</label>
-                                    <textarea className={styles.imput} type="text" value={post.platform} name="platform" onChange={(e) => handleChange(e)}></textarea>
-                                    {errors.platform && (<p >{errors.platform}</p>)}
+
+                <select  onChange={(e)=> handleSelectPlatform(e)}>
+                        <option value="" hidden name="platform" >Select Platforms</option>
+                            {allPlatform?.map((p) => {
+                            return ( <option value={p.name} key={p.name}>{p.name}</option>)
+                            })
+                            } 
+                    </select>
+                    <ul className={styles.gameContainer}>
+                    
+                        <h5>                            
+                            {post.platform.map(p => 
+                            <div>
+                                <p>{allPlatform?.find(element => element.name=== p)?.name}</p>
+                                <button className={styles.botonDelete} onClick={() => handleDeletePlatform(p)}>x</button>
+                            </div>
+                            )}
+                        </h5>
+                       
+                    </ul>
+                
+
+
                 </div>
                 <div className={styles.gameContainer} >
                     <select  onChange={(e)=> handleSelect(e)}>
@@ -197,14 +236,14 @@ export default function GameCreate(){
                     </select>
                     <ul className={styles.gameContainer}>
                     
-                        <p>                            
+                        <h5>                            
                             {post.genres.map(g => 
                             <div>
                                 <p>{allGenre?.find(element => element.id === g)?.name}</p>
                                 <button className={styles.botonDelete} onClick={() => handleGenreDelete(g)}>x</button>
                             </div>
                             )}
-                        </p>
+                        </h5>
                        
                     </ul>
                 </div>

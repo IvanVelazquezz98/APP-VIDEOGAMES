@@ -7,5 +7,6 @@
  export const FILTERED_BY_GENRE = "FILTERED_BY_GENRE";
  export const CLEAR_PAGE = "CLEAR_PAGE";
  export const SET_FAV = "SET_FAV";
- export const DEL_FAV = "DEL_FAV"
+ export const DEL_FAV = "DEL_FAV";
+ export const FILTERED_BY_PLATFORM = "FILTERED_BY_PLATFORM";
 
