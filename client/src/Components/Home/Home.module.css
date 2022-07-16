@@ -24,7 +24,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: baseline;
-    height: 10rem;
+    height: 10.2rem;
     padding: 2rem;
     background-repeat: no-repeat;
     background-size: cover;
@@ -60,12 +60,6 @@
     text-decoration: none;
 }
 
-.inputContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
 
 .createGame{
     display: flex;

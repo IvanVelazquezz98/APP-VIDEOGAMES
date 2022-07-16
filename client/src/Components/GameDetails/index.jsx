@@ -22,15 +22,12 @@ export default function GamesDetail (id) {
         return() =>{
            dispatch(clearPage())
         }
-            
-        
     },[dispatch,id])
 
 
      function handleReload() {
         history.push('/Home')
         window.location.reload();
-
     }
   
     return (
@@ -71,11 +68,7 @@ export default function GamesDetail (id) {
                        <p className={styles.content}> { detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>))} </p>
                         }
 
-                    </div>
-                    
-
-                   
-                
+                    </div>   
             }
             </div> 
             </div>

@@ -12,11 +12,15 @@
 }
 
 .boton{
-    border-radius: 5px;
-    background-color: #784fe7;
-    border: #784fe7 ;
-    border-bottom: 2px;
-    cursor:pointer
+    cursor: pointer;
+    text-decoration:none;
+    font-weight:12px;
+    font-size:12px;
+    color:#080101;
+    background-color:#784fe7;
+    border-radius: 00.5rem;
+    transition: transform .7s;
+    border-color: #080101;
 }
 
 .boton:hover{

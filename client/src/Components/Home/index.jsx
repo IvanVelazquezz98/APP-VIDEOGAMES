@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import { useDispatch , useSelector  } from 'react-redux';
 import Paginado from './paginado';
 import Card from '../../Components/Cards';
-import {getGenres, getVideogames , orderByName ,orderByRating , filteredGenre ,filteredPlatform} from '../../Redux/actions';
+import {getGenres, getVideogames , orderByName
+ ,orderByRating } from '../../Redux/actions';
 import styles from '../Home/Home.module.css'
 import SearchBar from '../SearchBar';
 import Loading from '../Loading';
-import {allPlatform} from '../CreateGame/platforms'
-import About from '../About'
+import Filters from '../Filters';
 
 export default function Home() {
     const dispatch = useDispatch() 
@@ -45,72 +45,21 @@ export default function Home() {
         window.location.reload();
       }
 
-    function handleSortedGameName(e){
-        dispatch(orderByName(e.target.value))
-        setCurrentPage(1)
-        setOrder(e.target.value)
-        e.preventDefault()
-    }
-
-    function handleSortedGameRating(e){
-        dispatch(orderByRating(e.target.value))
-        setCurrentPage(1)
-        setScore(e.target.value)
-        e.preventDefault();
-    }
-    function handleFilteredGenre(e){
-        dispatch(filteredGenre(e.target.value))
-        setCurrentPage(1)
-        e.preventDefault();
-    }
-    function handleFilteredPlatform(e){
-        dispatch(filteredPlatform(e.target.value))
-        setCurrentPage(1)
-        e.preventDefault()
-    }
-
     return(
         <>
         <div className={styles.firstContainer}>
-               <button className={styles.home} onClick={(e) => handleReload(e)}>Home</button>
+            <button className={styles.home} onClick={(e) => handleReload(e)}>Home</button>
         
         <div  >
             <SearchBar setCurrentPage={setCurrentPage}/>
         </div>
-
-        <div className={styles.inputContainer}>
-        <select  onChange={e => handleSortedGameName(e)}>
-                <option value="" >Select Order Name</option>
-                <option value= "Asc">Ascendant</option>
-                <option value ="des">Descendant</option>
-        </select>
-        <select  onChange={e => handleSortedGameRating(e)}>
-                <option value="" >Order By Rating Score</option> 
-                <option value="MAX RATING">Max Rating</option>
-                <option value="MIN RATING">Min Rating</option>
-        </select>
-        <select onChange={e => handleFilteredGenre(e)}>
-                    <option value="">Select Genre</option>
-                    <option value="">All</option>
-                    {allGenre.map((g) => (
-                    <option value={g.name} key={g.id}>{g.name}</option>
-                    ))}
-         </select>
-         <select onChange={e => handleFilteredPlatform(e)}>
-                    <option value="">Select Platform</option>
-                    <option value="">All</option>
-                    {allPlatform.map((p) => (
-                    <option value={p.name} key={p.name}>{p.name}</option>
-                    ))}
-         </select>
-        </div>
+            <Filters setOrder={setOrder} setScore={setScore} setCurrentPage={setCurrentPage} ></Filters>
+        
         <div className={styles.createGame}> 
             <Link to="/Createvideogame">
             <button className={styles.botonCreateGame}> Created Game </button>
-            </Link>
-                
+            </Link>  
         </div>
-        
         <div>
             <Link to="/About">
             <button className={styles.about}> About</button>
@@ -122,7 +71,6 @@ export default function Home() {
             </Link>
         </div>
         </div>
-        
         <div>
          <Paginado 
         gamesPerPage={gamesPerPage}

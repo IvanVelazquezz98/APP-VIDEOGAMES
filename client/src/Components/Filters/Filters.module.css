@@ -1,0 +1,43 @@
+
+
+
+.inputContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.botonreload {
+    text-decoration:none;
+    color:#080101;
+    background-color :#784fe7;
+    border-radius: 00.5rem;
+    border-color: #080101;
+    flex-direction: row;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    transition: all 1s;
+}
+.botonreload:hover{
+    background:#784fe7;
+    box-shadow: 0 0 10px #0c0c0b ;
+    cursor: pointer;
+    color: rgb(12, 12, 1);
+    transform: rotate(360deg);
+    transition: all 1s;
+}
+
+
+
+
+   
+.botonreload:active{
+   
+    background:#11072c;
+    box-shadow: 0 0 10px #0c0c0b ;
+    cursor: pointer;
+    color: rgb(12, 12, 1);
+}

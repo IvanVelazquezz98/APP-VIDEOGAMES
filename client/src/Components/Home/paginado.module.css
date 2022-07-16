@@ -33,3 +33,11 @@
      transition-delay: .2s;
      color: rgb(7, 7, 1);  
     }
+    
+.botonpersonalizado:active{
+    
+     background:#11072c;
+     box-shadow: 0 0 10px #0c0c0b ;
+     cursor: pointer;
+     color: rgb(12, 12, 1);
+}

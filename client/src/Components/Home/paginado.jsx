@@ -5,6 +5,7 @@ import styles from "../Home/paginado.module.css";
 export default function Paginado({gamesPerPage, allGames, paginado}){
     const pageNumber = []
     
+    
     for(let i = 0; i < Math.ceil(allGames/gamesPerPage); i++){
         pageNumber.push(i+1)
     }
