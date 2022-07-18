@@ -1,10 +1,7 @@
 import React from "react"
 import {useState , useEffect} from "react"
 import { useDispatch  } from "react-redux";
-
-import { Link } from 'react-router-dom';
 import {  searchGame } from "../../Redux/actions";
-import Loading from "../Loading";
 import styles from '../SearchBar/SearchBar.module.css'
 
 

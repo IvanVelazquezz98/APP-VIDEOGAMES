@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../Favorites/Favorites.module.css'
 import Loading from '../Loading'
 import { useSelector , useDispatch } from 'react-redux';
-import { Link , useParams , useHistory} from "react-router-dom";
+import { Link , useHistory} from "react-router-dom";
 import { delFav } from '../../Redux/actions';
 export default function Favorites(){
     const favGame = useSelector((state) => state.favGames) 

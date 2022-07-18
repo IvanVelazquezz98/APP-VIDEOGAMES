@@ -4,7 +4,7 @@ const {getGenres} = require("../Controllers/genre.c")
 const { Genre } = require("../db")
 
 
-router.get("/", async (req,res) =>{
+router.get("/", async (req,res,next) =>{
     try{
         
         let GenreDb = await Genre.findAll()

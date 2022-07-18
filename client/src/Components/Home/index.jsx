@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch , useSelector  } from 'react-redux';
 import Paginado from './paginado';
 import Card from '../../Components/Cards';
-import {getGenres, getVideogames , orderByName
- ,orderByRating } from '../../Redux/actions';
+import {getGenres, getVideogames } from '../../Redux/actions';
 import styles from '../Home/Home.module.css'
 import SearchBar from '../SearchBar';
 import Loading from '../Loading';

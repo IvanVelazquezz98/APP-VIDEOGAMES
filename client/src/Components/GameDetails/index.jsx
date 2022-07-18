@@ -1,9 +1,9 @@
 import react from 'react'
 
-import { Link , useParams , useHistory} from "react-router-dom"
+import { useParams , useHistory} from "react-router-dom"
 import { useDispatch , useSelector } from "react-redux"
 import { useEffect } from "react";
-import { getVideogames , clearPage, getDetail } from '../../Redux/actions'
+import { clearPage, getDetail } from '../../Redux/actions'
 import styles from "../GameDetails/GameDetails.module.css"
 import Loading from '../Loading';
 
