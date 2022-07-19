@@ -155,3 +155,28 @@
     height: 100%; 
     
 }
+.switch{
+    cursor: pointer;
+    text-decoration:none;
+    font-weight:12px;
+    font-size:12px;
+    color:#080101;
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left:12px;
+    padding-right:12px;
+    background-color:#784fe7;
+    border-radius: 1000px;
+    border-color: #080101;
+    border:none;
+    position: relative;
+    outline: none;
+
+}
+
+body.dark{
+    background-color: #080101;
+    color: bisque;
+}
+
+

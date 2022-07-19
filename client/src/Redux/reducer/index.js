@@ -13,7 +13,7 @@ const initialState ={
 
 export default function rootReducer(state = initialState , action){
     switch (action.type) {
-        case "GET_GAMES":
+            case "GET_GAMES":
             return {
                 ...state,
                 allGames: action.payload,
@@ -64,7 +64,16 @@ export default function rootReducer(state = initialState , action){
                 return {
                     ...state,
                     allGames:platformFiltered
-                }        
+                }     
+            case "FILTER_CREATED":
+                
+                const gamesC = state.copyGames
+                const gamesFilter = action.payload === "Original" ? gamesC.filter(g => g.id.length < 10) :
+             gamesC.filter(g => g.id.length > 10 ) 
+                return{
+                    ...state,
+                    allGames: action.payload === "All" ? gamesC : gamesFilter
+                }
 
             case "ORDER_BY_NAME":
                 const sortedRGameName = action.payload === "Asc" ? 

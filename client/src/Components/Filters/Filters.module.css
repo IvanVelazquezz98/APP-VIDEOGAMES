@@ -8,6 +8,12 @@
     cursor: pointer;
 }
 
+.imput{
+    border-bottom: 2px;
+    border-color: #784fe7;
+    border-radius: 5px;
+}
+
 .botonreload {
     text-decoration:none;
     color:#080101;
@@ -21,6 +27,7 @@
     cursor: pointer;
     transition: all 1s;
 }
+
 .botonreload:hover{
     background:#784fe7;
     box-shadow: 0 0 10px #0c0c0b ;
@@ -30,12 +37,7 @@
     transition: all 1s;
 }
 
-
-
-
-   
 .botonreload:active{
-   
     background:#11072c;
     box-shadow: 0 0 10px #0c0c0b ;
     cursor: pointer;

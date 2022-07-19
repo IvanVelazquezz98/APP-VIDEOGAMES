@@ -3,7 +3,7 @@ import Loading from "../../Components/Loading"
 
 import {GET_GAMES, GET_GENRES ,GET_DETAIL ,SEARCH_GAME,
      ORDER_BY_NAME ,ORDER_BY_RATING,FILTERED_BY_GENRE,
-     CLEAR_PAGE,SET_FAV,DEL_FAV,FILTERED_BY_PLATFORM} from "./actionTypes"
+     CLEAR_PAGE,SET_FAV,DEL_FAV,FILTERED_BY_PLATFORM,FILTER_CREATED} from "./actionTypes"
 
 
 export function getVideogames(){
@@ -98,6 +98,12 @@ export function filteredPlatform(payload){
         payload
     }
 
+}
+export function filterCreated(payload){
+    return{
+        type:FILTER_CREATED,
+        payload
+    }
 }
 
 export function postGame(payload){

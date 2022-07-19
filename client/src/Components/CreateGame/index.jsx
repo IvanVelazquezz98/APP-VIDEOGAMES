@@ -17,6 +17,13 @@ function validate(post){
     ? (errors.description = "")
     : (errors.description = "Your game needs a description!")
 
+    post.releaseDate
+    ? (errors.releaseDate = "")
+    : (errors.releaseDate = "Your game need a release date")
+    post.rating
+    ? (errors.rating = "")
+    :(errors.rating = "Your game need a rating")
+
    post.image 
    ? (errors.image = "")
    : (errors.image = "Your game need a image!")
@@ -181,27 +188,28 @@ export default function GameCreate(){
                 <div  className={styles.gameContainer}>
                     <label >Name</label>
                     <input className={styles.imput} type="text" value={post.name} name="name" onChange={(e) => handleChange(e)} ></input>
-                    {errors.name && (<p >{errors.name}</p>)}
+                    {errors.name && (<p className={styles.errors}>{errors.name}</p>)}
                 </div>
                 <div className={styles.gameContainer}>
                     <label >Description</label>
-                    <textarea className={styles.imput} type="text" value={post.summary} name="description" maxLength="1000" onChange={(e) => handleChange(e)}></textarea>
-                    {errors.description && (<p>{errors.description}</p>)}
+                    <textarea className={styles.imput} type="text" value={post.summary} name="description" maxLength="2000" onChange={(e) => handleChange(e)}></textarea>
+                    {errors.description && (<p className={styles.errors}>{errors.description}</p>)}
                 </div>
                 <div className={styles.gameContainer}>
                     <label >releaseDate</label>
-                    <input className={styles.imput} type="date" min="0" max="100" value={post.releaseDate} name="releaseDate" onChange={(e) => handleChange(e)}></input>
+                    <input className={styles.imput} type="date" value={post.releaseDate} name="releaseDate" onChange={(e) => handleChange(e)}></input>
                     {<p >{post.releaseDate}</p>}
+                    {errors.releaseDate && (<p className={styles.errors}>{errors.releaseDate}</p>)}
                 </div>
                 <div className={styles.gameContainer}>
                     <label >Image URL</label>
                     <input className={styles.imput} type="url" value={post.image} name="image" onChange={(e) => handleChange(e)}></input>
-                    {errors.image && (<p>{errors.image}</p>)}
+                    {errors.image && (<p className={styles.errors}>{errors.image}</p>)}
                 </div>
                 <div className={styles.gameContainer}>
                                     <label>Rating</label>
                                     <input className={styles.imput} type="Number" value={post.rating} name="rating" min= "0" max= "5" step="0.1" onChange={(e) => handleChange(e)}></input>
-                                    {errors.rating && (<p >{errors.rating}</p>)}
+                                    {errors.rating && (<p className={styles.errors}>{errors.rating}</p>)}
                 </div>
                
                 

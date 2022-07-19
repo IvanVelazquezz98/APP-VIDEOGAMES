@@ -52,8 +52,9 @@ export default function Home() {
         <div  >
             <SearchBar setCurrentPage={setCurrentPage}/>
         </div>
+
             <Filters setOrder={setOrder} setScore={setScore} setCurrentPage={setCurrentPage} ></Filters>
-        
+
         <div className={styles.createGame}> 
             <Link to="/Createvideogame">
             <button className={styles.botonCreateGame}> Created Game </button>
@@ -70,6 +71,7 @@ export default function Home() {
             </Link>
         </div>
         </div>
+        
         <div>
          <Paginado 
         gamesPerPage={gamesPerPage}
@@ -108,10 +110,7 @@ export default function Home() {
         allGames={allGames.length} 
         paginado={paginado}>
         </Paginado>
-        </div> 
-
-        
-        
+        </div>
         </>
         )
     
