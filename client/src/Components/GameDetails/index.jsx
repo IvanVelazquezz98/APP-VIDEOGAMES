@@ -8,26 +8,26 @@ import styles from "../GameDetails/GameDetails.module.css"
 import Loading from '../Loading';
 
 
-export default function GamesDetail (id) {
+export default function GamesDetail () {
 
     const detailGame = useSelector((state) => state.detail) 
     const dispatch = useDispatch()
-    const gameId = useParams()
+    const {id} = useParams()
     
     const history = useHistory()
 
     useEffect(() => {
-        dispatch(getDetail(gameId.id))
+        dispatch(getDetail(id))
 
         return() =>{
            dispatch(clearPage())
         }
-    },[dispatch,id])
+    },[dispatch])
 
 
      function handleReload() {
         history.push('/Home')
-        window.location.reload();
+        //window.location.reload();
     }
   
     return (

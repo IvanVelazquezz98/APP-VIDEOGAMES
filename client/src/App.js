@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
     <Route exact path="/"  component={landingPage}/>
     <Route exact path="/Home" component={Home} />
-    <Route exact path="/Videogames/:id" component={GamesDetail} />
+    <Route exact path="/videogames/:id" component={GamesDetail} />
     <Route exact path="/Createvideogame" component={CreateGame} />
     <Route exact path="/About" component={About} />
     <Route exact path="/Favorites" component={Favorites} />

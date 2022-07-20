@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom"
+import {  useHistory} from "react-router-dom"
 import { getGenres, postGame } from "../../Redux/actions"
 import { useDispatch , useSelector } from "react-redux"
 import { allPlatform } from "./platforms";
@@ -41,11 +41,7 @@ export default function GameCreate(){
     const dispatch = useDispatch()
     const history = useHistory()
     const allGenre = useSelector((state) => state.genres)
-
-    useEffect(() => {
-        dispatch(getGenres(allGenre)
- 
-    ,[dispatch])})
+    
 
     
     function handleReload() {
@@ -119,6 +115,7 @@ export default function GameCreate(){
     
 
     function handleSubmit(e){
+        var videogame;
         const maximo = 50
         const rMaximo = 5
         const rMinimo = 0
@@ -158,9 +155,19 @@ export default function GameCreate(){
             if(!post.image.includes("https://") && !post.image.includes("http://")){
                 e.preventDefault()
                 return alert ("This isn't a valid image address")}
-   
+            else{
+                videogame = {
+                name: post.name,
+                description: post.description,
+                releaseDate: post.releaseDate,
+                image: post.image,
+                rating: post.rating,     
+                platform: post.platform,
+                genres: post.genres
+                }
+            }
 
-           dispatch(postGame(post))
+           dispatch(postGame(videogame))
             alert("Game sucessfully created!")
             setPost({
                 title: "",
@@ -171,7 +178,7 @@ export default function GameCreate(){
                 platform:[],
                 genres: []
                 })
-            history.push('/home')
+            
          }
         }
     
@@ -233,9 +240,6 @@ export default function GameCreate(){
                             )}
                         </h5> 
                     </ul>
-                
-
-
                 </div>
                 <div className={styles.gameContainer} >
                     <select  onChange={(e)=> handleSelect(e)}>

@@ -1,5 +1,4 @@
 import axios from "axios"
-import Loading from "../../Components/Loading"
 
 import {GET_GAMES, GET_GENRES ,GET_DETAIL ,SEARCH_GAME,
      ORDER_BY_NAME ,ORDER_BY_RATING,FILTERED_BY_GENRE,
@@ -39,7 +38,7 @@ export function getGenres(){
 export function getDetail(id){
     return async function(dispatch){
         try{
-         var json = await axios.get('http://localhost:3001/videogames/' + id)
+         var json = await axios.get(`http://localhost:3001/videogames/${id}`)
             return dispatch ({
                 type: GET_DETAIL,
                 payload: json.data})
@@ -56,17 +55,15 @@ export function searchGame(name){
         
         try {
             
-            axios.get('http://localhost:3001/videogames?name=' + name) 
-            .then(response => {
+            var json = await axios.get('http://localhost:3001/videogames?name=' + name) 
+            
                 return dispatch ({
                     type: SEARCH_GAME,
-                    payload: response.data 
+                    payload: json.data 
                 }) 
-            } )
-           
             
         } catch (error) {
-            <Loading/>
+            console.log(error)
         }
     }
 }

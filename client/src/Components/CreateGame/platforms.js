@@ -22,9 +22,9 @@ export const allPlatform = [
     {name:"Jaguar"},
     {name:"Game Gear"},
     {name:"Neo Geo"},
-    {name:"Play Station 5"},
-    {name:"Play Station 4"},
-    {name:"Play Station 3"},
-    {name:"Play Station 2"},
-    {name:"Play Station 1"}
+    {name:"PlayStation 5"},
+    {name:"PlayStation 4"},
+    {name:"PlayStation 3"},
+    {name:"PlayStation 2"},
+    {name:"PlayStation 1"}
 ]

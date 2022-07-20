@@ -14,6 +14,7 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique:true
     },
     description: {
       type: DataTypes.TEXT
@@ -32,7 +33,7 @@ module.exports = (sequelize) => {
        
     },
     platform:{
-      type:DataTypes.ARRAY(DataTypes.TEXT),
+      type:DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     }
 

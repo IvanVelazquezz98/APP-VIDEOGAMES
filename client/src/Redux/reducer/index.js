@@ -19,7 +19,6 @@ export default function rootReducer(state = initialState , action){
                 allGames: action.payload,
                 copyGames: action.payload,
                 
-                detail: []
             }
 
             case "GET_GENRES" :

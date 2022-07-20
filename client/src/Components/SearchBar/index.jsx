@@ -17,7 +17,7 @@ export default function SearchBar({title , setCurrentPage}){
     }
 
      function handleSubmit(e){ 
-        e.preventDefault(); 
+        
         if(!name){ 
         alert("enter a valid name") 
         }else{ 
@@ -27,6 +27,7 @@ export default function SearchBar({title , setCurrentPage}){
         setName("") 
         setCurrentPage(1)
         console.log(e)
+         e.preventDefault();
         } 
         }
     

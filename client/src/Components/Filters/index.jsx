@@ -41,16 +41,19 @@ export default function Filters ({setOrder , setScore , setCurrentPage}) {
         setScore(e.target.value)
         e.preventDefault();
     }
+
     function handleFilteredGenre(e){
         dispatch(filteredGenre(e.target.value))
         
         e.preventDefault();
     }
+
     function handleFilteredPlatform(e){
         dispatch(filteredPlatform(e.target.value))
         
         e.preventDefault()
     }
+    
     function handleFilterDb(e){
         dispatch(filterCreated(e.target.value))
     }
