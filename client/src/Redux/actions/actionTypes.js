@@ -10,4 +10,5 @@
  export const DEL_FAV = "DEL_FAV";
  export const FILTERED_BY_PLATFORM = "FILTERED_BY_PLATFORM";
  export const FILTER_CREATED = "FILTER_CREATED";
+ export const DELETED_GAME = "DELETED_GAME";
 

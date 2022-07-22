@@ -27,6 +27,8 @@
     transition-delay: .1s;
     color: rgb(92, 125, 153);
     background-size: cover;
+    background-position: -2rem;
+    background-repeat: no-repeat;
 }
 
 .image {
@@ -64,8 +66,8 @@
 
 .genres {
     text-decoration: none;
-    font-size: 10px;
-    color: #0a0a02be;
+    font-size: 11px;
+    color: #0a0a02e0;
     align-items: center;
     height: 4rem;
 }

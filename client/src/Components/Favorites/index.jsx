@@ -35,11 +35,10 @@ export default function Favorites(){
                     <img className={styles.image} src={game.image} />
                     <h3 className={styles.name}>{game.name} </h3></Link>
                     </div>
-                    <button className={styles.botonDelete} onClick={(e) => {handleDelete(game)}}>X</button>
+                    <button tittle="Deleted Favorites" className={styles.botonDelete} onClick={(e) => {handleDelete(game)}}>X</button>
                  </div>)
             })
         } 
-
         </div>
         </>
     )

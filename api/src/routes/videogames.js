@@ -38,8 +38,6 @@ const { Videogame, Genre } = require("../db");
     catch(err) {
         next(err)
     }
-
-
     })
 
     router.post("/CreateVideogame", async (req,res,next) =>{
@@ -65,6 +63,7 @@ const { Videogame, Genre } = require("../db");
         }
 
     })
+
 
 ///deleteeee
     router.delete("/:id", async (req,res,next) => {

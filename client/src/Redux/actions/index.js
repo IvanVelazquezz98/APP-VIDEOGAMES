@@ -2,7 +2,8 @@ import axios from "axios"
 
 import {GET_GAMES, GET_GENRES ,GET_DETAIL ,SEARCH_GAME,
      ORDER_BY_NAME ,ORDER_BY_RATING,FILTERED_BY_GENRE,
-     CLEAR_PAGE,SET_FAV,DEL_FAV,FILTERED_BY_PLATFORM,FILTER_CREATED} from "./actionTypes"
+     CLEAR_PAGE,SET_FAV,DEL_FAV,FILTERED_BY_PLATFORM,
+     FILTER_CREATED,DELETED_GAME} from "./actionTypes"
 
 
 export function getVideogames(){
@@ -66,6 +67,17 @@ export function searchGame(name){
             console.log(error)
         }
     }
+}
+
+ export function deletedGame(id){
+    return async function(dispatch){
+    try{
+        var json = await axios.delete(`http://localhost:3001/videogames/${id}`)
+        return json
+    }catch(err){
+        console.log(err)
+    }
+ }
 }
 
 export function orderByName(payload){

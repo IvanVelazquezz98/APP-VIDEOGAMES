@@ -85,9 +85,8 @@ export default function Home() {
                 ?
                 <div >
                       <Loading/>
-                    </div> 
+                </div> 
                 :
-                
                 currentGames?.map(game => {
                     return (
                         <Link className={styles.Link} to={`/videogames/${game.id}`}>

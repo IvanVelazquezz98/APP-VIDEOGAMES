@@ -35,9 +35,8 @@ export default function SearchBar({title , setCurrentPage}){
   
     return (
         <div className={styles.searchContainer}>
-            
             <input className={styles.imput} type="text" placeholder="Search Game..." onChange={(e) => handleInputChange(e)}></input>
             <button className={styles.boton} type="submit"  onClick={ (e) => handleSubmit(e) }>Search</button>
-            </div>
+        </div>
             )
     }

@@ -3,7 +3,7 @@ import react from 'react'
 import { useParams , useHistory} from "react-router-dom"
 import { useDispatch , useSelector } from "react-redux"
 import { useEffect } from "react";
-import { clearPage, getDetail } from '../../Redux/actions'
+import { clearPage, getDetail ,deletedGame} from '../../Redux/actions'
 import styles from "../GameDetails/GameDetails.module.css"
 import Loading from '../Loading';
 
@@ -24,25 +24,25 @@ export default function GamesDetail () {
         }
     },[dispatch])
 
-
-     function handleReload() {
+    function handledeletedGame(e){
+        dispatch(deletedGame(id))
         history.push('/Home')
-        //window.location.reload();
+        return alert("Game deleted")
+    }
+
+
+    function handleReload() {
+        history.push('/Home')
     }
   
     return (
         
             <div>
                 <div className={styles.firstContainer} >
-                
                     <button onClick={(e) => handleReload(e)} className={styles.home} >HOME</button>
-
-                
             </div>
                 <div className={styles.mainContainer}>
-                
              {
-
                (detailGame == !detailGame ) ? 
                    <div >
                      <Loading></Loading>
@@ -63,7 +63,10 @@ export default function GamesDetail () {
                         <h3 className={styles.title}> Platforms</h3>
 
                         { (detailGame.id.length > 8 )?
-                        <p className={styles.content}>{  detailGame.platform.replace("{", '' ).replace("}",'').replace( /['"]+/g,'')}</p>
+                        <div className={styles.mainContainer}>
+                        <p className={styles.contentC}>{ detailGame.platform.replace("{",'' ).replace("}",'').replace( /['"]+/g,'')}</p>
+                        <button className={styles.deletedGame} onClick={(e) => handledeletedGame(e)}>Deleted Game</button>
+                        </div>
                        :
                        <p className={styles.content}> { detailGame.platform.map(r => (<li key={r.name}>{r.name} </li>))} </p>
                         }

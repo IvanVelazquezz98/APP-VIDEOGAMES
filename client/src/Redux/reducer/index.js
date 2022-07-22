@@ -68,7 +68,7 @@ export default function rootReducer(state = initialState , action){
                 
                 const gamesC = state.copyGames
                 const gamesFilter = action.payload === "Original" ? gamesC.filter(g => g.id.length < 10) :
-             gamesC.filter(g => g.id.length > 10 ) 
+                gamesC.filter(g => g.id.length > 10 ) 
                 return{
                     ...state,
                     allGames: action.payload === "All" ? gamesC : gamesFilter
@@ -76,7 +76,7 @@ export default function rootReducer(state = initialState , action){
 
             case "ORDER_BY_NAME":
                 const sortedRGameName = action.payload === "Asc" ? 
-                    state.allGames.sort(function( a , b ) {
+                    state.copyGames.sort(function( a , b ) {
                          if(a.name.toLowerCase() > b.name.toLowerCase()){
                              return 1
                          }
@@ -84,7 +84,7 @@ export default function rootReducer(state = initialState , action){
                                  return -1
                             }
                         return 0
-                    }) : state.allGames.sort(function( a , b ) {
+                    }) : state.copyGames.sort(function( a , b ) {
                         if(a.name.toLowerCase() > b.name.toLowerCase()){
                              return -1
                          }
@@ -101,7 +101,7 @@ export default function rootReducer(state = initialState , action){
             case "ORDER_BY_RATING":
             
                      const sortedGameRating = action.payload === "MAX RATING" ? 
-                         state.allGames.sort(function(a,b) {
+                         state.copyGames.sort(function(a,b) {
                              if(a.rating < b.rating){
                                 return 1
                              }
@@ -109,7 +109,7 @@ export default function rootReducer(state = initialState , action){
                                   return -1
                               }
                               return 0
-                          }) : state.allGames.sort(function(a,b) {
+                          }) : state.copyGames.sort(function(a,b) {
                             if(a.rating < b.rating){
                                  return -1
                               }

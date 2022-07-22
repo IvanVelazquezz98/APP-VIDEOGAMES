@@ -30,32 +30,33 @@ export default function Filters ({setOrder , setScore , setCurrentPage}) {
 
     function handleSortedGameName(e){
         dispatch(orderByName(e.target.value))
-        
+        setCurrentPage(1)
         setOrder(e.target.value)
         e.preventDefault()
     }
 
     function handleSortedGameRating(e){
         dispatch(orderByRating(e.target.value))
-        
+        setCurrentPage(1)
         setScore(e.target.value)
         e.preventDefault();
     }
 
     function handleFilteredGenre(e){
         dispatch(filteredGenre(e.target.value))
-        
+        setCurrentPage(1)
         e.preventDefault();
     }
 
     function handleFilteredPlatform(e){
         dispatch(filteredPlatform(e.target.value))
-        
+        setCurrentPage(1)
         e.preventDefault()
     }
     
     function handleFilterDb(e){
         dispatch(filterCreated(e.target.value))
+        setCurrentPage(1)
     }
 
     return(

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {  useHistory} from "react-router-dom"
-import { getGenres, postGame } from "../../Redux/actions"
+import { postGame } from "../../Redux/actions"
 import { useDispatch , useSelector } from "react-redux"
 import { allPlatform } from "./platforms";
 import styles from '../CreateGame/CreateGame.module.css'
@@ -45,10 +45,8 @@ export default function GameCreate(){
 
     
     function handleReload() {
-
         history.push('/Home')
         window.location.reload();
-
     }
     const [errors, setErrors] = useState({
             name: "",
@@ -136,7 +134,7 @@ export default function GameCreate(){
             return alert ("The recipe needs a platform")    
         } 
         else if(post.platform.length > 100){
-           
+           e.preventDefault()
             return alert ("platform cannot have as many characters")
         }
         else if(post.rating < rMinimo && post.rating > rMaximo) {
@@ -147,9 +145,16 @@ export default function GameCreate(){
             e.preventDefault()
             return alert ("The game needs a rating")
         }
-        
+        else if (!post.releaseDate){
+            e.preventDefault()
+            return alert ("The game needs a release date")
+        }
+        else if(post.releaseDate.length < 5 ){
+            e.preventDefault()
+            return alert ("You entered an invalid release date")
+        }
         else if(!post.genres.length){
-           
+           e.preventDefault()
             return alert("You need to add at least one genre for the game")
         } else {
             if(!post.image.includes("https://") && !post.image.includes("http://")){
@@ -185,52 +190,46 @@ export default function GameCreate(){
     return(
         <div className={styles.firstContainer}>
             <div >
-            
-            <button onClick={(e) => handleReload(e)} className={styles.home} >HOME</button>
-           
+                <button onClick={(e) => handleReload(e)} className={styles.home} >HOME</button>
             </div>
-            <h1 className={styles.gameContainer}>Create your own Game</h1>
+                <h1 className={styles.gameContainer}>Create your own Game</h1>
             <form >
-                
-                <div  className={styles.gameContainer}>
-                    <label >Name</label>
-                    <input className={styles.imput} type="text" value={post.name} name="name" onChange={(e) => handleChange(e)} ></input>
-                    {errors.name && (<p className={styles.errors}>{errors.name}</p>)}
-                </div>
-                <div className={styles.gameContainer}>
-                    <label >Description</label>
-                    <textarea className={styles.imput} type="text" value={post.summary} name="description" maxLength="2000" onChange={(e) => handleChange(e)}></textarea>
-                    {errors.description && (<p className={styles.errors}>{errors.description}</p>)}
-                </div>
-                <div className={styles.gameContainer}>
-                    <label >releaseDate</label>
-                    <input className={styles.imput} type="date" value={post.releaseDate} name="releaseDate" onChange={(e) => handleChange(e)}></input>
-                    {<p >{post.releaseDate}</p>}
-                    {errors.releaseDate && (<p className={styles.errors}>{errors.releaseDate}</p>)}
-                </div>
-                <div className={styles.gameContainer}>
-                    <label >Image URL</label>
-                    <input className={styles.imput} type="url" value={post.image} name="image" onChange={(e) => handleChange(e)}></input>
-                    {errors.image && (<p className={styles.errors}>{errors.image}</p>)}
-                </div>
-                <div className={styles.gameContainer}>
-                                    <label>Rating</label>
-                                    <input className={styles.imput} type="Number" value={post.rating} name="rating" min= "0" max= "5" step="0.1" onChange={(e) => handleChange(e)}></input>
-                                    {errors.rating && (<p className={styles.errors}>{errors.rating}</p>)}
-                </div>
-               
-                
-                <div className={styles.gameContainer}>
-
-                <select defaultValue="default" onChange={(e)=> handleSelectPlatform(e)}>
-                        <option value="default" hidden name="platform" >Select Platforms</option>
-                            {allPlatform && allPlatform?.map((p) => {
-                            return ( <option value={p.name} key={p.name}>{p.name}</option>)
-                            })
-                            } 
+            <div  className={styles.gameContainer}>
+                <label className={styles.title} >Name</label>
+                <input className={styles.imput} type="text" value={post.name} name="name" onChange={(e) => handleChange(e)} ></input>
+                {errors.name && (<p className={styles.errors}>{errors.name}</p>)}
+            </div>
+            <div className={styles.gameContainer}>
+                <label className={styles.title}>Description</label>
+                <textarea className={styles.imput} type="text" value={post.summary} name="description" maxLength="2000" onChange={(e) => handleChange(e)}></textarea>
+                {errors.description && (<p className={styles.errors}>{errors.description}</p>)}
+            </div>
+            <div className={styles.gameContainer}>
+                <label className={styles.title} >releaseDate</label>
+                <input className={styles.imput} type="date" value={post.releaseDate} name="releaseDate" onChange={(e) => handleChange(e)}></input>
+                {<p >{post.releaseDate}</p>}
+                {errors.releaseDate && (<p className={styles.errors}>{errors.releaseDate}</p>)}
+            </div>
+            <div className={styles.gameContainer}>
+                <label className={styles.title}>Image URL</label>
+                <input className={styles.imput} type="url" value={post.image} name="image" onChange={(e) => handleChange(e)}></input>
+                {errors.image && (<p className={styles.errors}>{errors.image}</p>)}
+            </div>
+            <div className={styles.gameContainer}>
+                    <label className={styles.title}>Rating</label>
+                    <input className={styles.imput} type="Number" value={post.rating} name="rating" min= "0" max= "5" step="0.1" onChange={(e) => handleChange(e)}></input>
+                    {errors.rating && (<p className={styles.errors}>{errors.rating}</p>)}
+            </div>
+            <div className={styles.gameContainer}>
+                    <label className={styles.title}>select Platforms</label>
+                    <select className={styles.imput} defaultValue="default" onChange={(e)=> handleSelectPlatform(e)}>
+                    <option value="default" hidden name="platform" >Select Platforms</option>
+                    {allPlatform && allPlatform?.map((p) => {
+                    return ( <option value={p.name} key={p.name}>{p.name}</option>)
+                    })
+                    } 
                     </select>
                     <ul className={styles.gameContainer}>
-                    
                     <h5>                            
                             {post.platform.map(p => 
                             <div>
@@ -242,16 +241,18 @@ export default function GameCreate(){
                     </ul>
                 </div>
                 <div className={styles.gameContainer} >
-                    <select  onChange={(e)=> handleSelect(e)}>
-                        <option value="" hidden name="genre" >Select Genres</option>
-                            {allGenre?.map((genres) => {
-                            return ( <option value={genres.id} key={genres.id}>{genres.name}</option>)
-                            })
-                            } 
+                    <div className={styles.title} >
+                    <label >select Genres</label>
+                    </div>
+                    <select className={styles.imput} onChange={(e)=> handleSelect(e)}>
+                    <option value="" hidden name="genre" >Select Genres</option>
+                    {allGenre?.map((genres) => {
+                    return ( <option value={genres.id} key={genres.id}>{genres.name}</option>)
+                    })
+                    } 
                     </select>
                     <ul className={styles.gameContainer}>
-                    
-                        <h5>                            
+                    <h5>                            
                             {post.genres.map(g => 
                             <div>
                                 <label className={styles.botonDelete} onClick={() => handleGenreDelete(g)}>x</label>
@@ -265,11 +266,8 @@ export default function GameCreate(){
                 <button className={styles.botonCreateGame}  type="submit" onClick={(e) => handleSubmit(e)}>Create Game</button>
                 </div> 
            </form>
-            
         </div>
     )
-
-
 }
 
 
